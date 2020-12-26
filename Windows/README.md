@@ -21,4 +21,6 @@ on the desktop
 
 all other files in C:\adb
 
-![alt tag](https://boroveen.github.io/video/adb.bat.gif "adb.bat")
+![alt tag](https://boroveen.github.io/video/adb.bat.gif "adb.bat")​
+
+aa
