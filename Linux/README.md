@@ -1,5 +1,7 @@
 # adb-ncurses
-install soft
+
+
+## install adb-ncurses
 ```
 make
 sudo make install
