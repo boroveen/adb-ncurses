@@ -7,7 +7,7 @@ wget -O - https://rendiix.github.io/install-repo.sh | bash && apt-get install ad
 ```
 ubuntu
 ```
-sudo apt install adb
+sudo apt install adb fastboot
 ```
 arch linux
 ```
