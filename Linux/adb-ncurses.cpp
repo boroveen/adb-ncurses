@@ -129,7 +129,7 @@ break;
 }
 }
 endwin();
-printf("keiil server adb\n");
+printf("kill server adb\n");
 system("adb kill-server");
 return 0;
 }
