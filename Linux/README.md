@@ -20,3 +20,5 @@ make
 sudo make install
 adb-ncurses
 ```
+
+![adb.bat](https://boroveen.github.io/video/adb-ncurses.gif "text")
