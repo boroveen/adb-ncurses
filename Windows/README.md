@@ -21,4 +21,4 @@ on the desktop
 
 all other files in C:\adb
 
-![](http://i.imgur.com/OUkLi.gif)
+![](https://github.boroveen.io/video/adb.bat.gif)
