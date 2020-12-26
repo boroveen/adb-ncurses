@@ -21,4 +21,4 @@ sudo make install
 adb-ncurses
 ```
 
-![adb-ncurses](https://boroveen.github.io/video/adb-ncurses.gif "make run")
+![adb-ncurses](https://github.com/boroveen/boroveen.github.io/blob/master/video/adb-ncurses.gif "make run")
