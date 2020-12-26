@@ -15,9 +15,19 @@ sudo pacman -S adb
 ```
 
 ## install adb-ncurses
+
+linux
+
 ```
 make
 sudo make install
+adb-ncurses
+```
+
+termux
+```
+make
+make termuxinstall
 adb-ncurses
 ```
 
