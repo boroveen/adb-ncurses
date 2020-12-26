@@ -19,4 +19,4 @@ reset-language.bat
 ```
 on the desktop
 
-all other files in C: / adb
+all other files in C:/adb
