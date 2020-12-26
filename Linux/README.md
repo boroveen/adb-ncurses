@@ -3,7 +3,7 @@
 termux
 ```
 pkg update && pkg upgrade && pkg install wget
-wget -O - https://rendiix.github.io/install-repo.sh | bash && apt-get install adb
+wget -O - https://rendiix.github.io/install-repo.sh | bash && apt-get install adb fastboot
 ```
 ubuntu
 ```
