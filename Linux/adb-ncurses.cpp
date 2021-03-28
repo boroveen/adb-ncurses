@@ -106,7 +106,7 @@ printw("PC directory: ");
 cin >> one;
 printw("Phone directory: ");
 getstr(two);
-sprintw(tree,"adb push %s %s",one,two);
+sprintf(tree,"adb push %s %s",one,two);
 system(tree);
 noecho();
 }
@@ -118,7 +118,7 @@ printw("PC directory: ");
 getstr(one);
 printf("Phone directory: ");
 getstr(two);
-sprintw(tree,"adb pull %s %s",two,one);
+sprintf(tree,"adb pull %s %s",two,one);
 system(tree);
 noecho();
 }
