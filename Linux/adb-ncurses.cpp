@@ -116,7 +116,7 @@ echo();
 char one[90],two[90],tree[256];
 printw("PC directory: ");
 getstr(one);
-printf("Phone directory: ");
+printw("Phone directory: ");
 getstr(two);
 sprintf(tree,"adb pull %s %s",two,one);
 system(tree);
