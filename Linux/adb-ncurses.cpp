@@ -102,7 +102,7 @@ clear();
 echo();
 char one[90],two[90],tree[256];
 printw("PC directory: ");
-cin >> one;
+getstr(one);
 printw("Phone directory: ");
 getstr(two);
 sprintf(tree,"adb push %s %s",one,two);
