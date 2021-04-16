@@ -159,7 +159,7 @@ case 261:
 if(y[0]==0){
 setup(1);
 system("adb wait-for-device");
-system("adb device");
+system("adb devices");
 printf("device: ");
 cin >> device;
 setup(2);
