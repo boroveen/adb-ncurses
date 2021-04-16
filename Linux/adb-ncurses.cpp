@@ -186,6 +186,7 @@ if(y[0]==5){
 setup(1);
 char command[255];
 sprintf(command,"adb -s %s shell",device);
+system(command);
 setup(2);
 }
 //if(y[0]==6) 
