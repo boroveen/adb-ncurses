@@ -14,6 +14,26 @@ arch linux
 sudo pacman -S adb
 ```
 
+## install ncurses
+
+ubuntu
+
+```
+sudo apt install install libncurses-dev
+```
+
+arch linux
+
+```
+sudo pacman -S ncurses-dev
+```
+
+termux
+
+```
+pkg install ncurses-dev
+```
+
 ## install adb-ncurses
 
 linux
