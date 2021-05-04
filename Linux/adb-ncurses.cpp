@@ -791,7 +791,7 @@ system(command);
 setup(2);
 }
 if(y[2]==6){
-setup(1);
+/*setup(1);
 system("mkdir ~/adb-ncurses;git clone https://github.com/boroveen/adb-ncurses ~/adb-ncurses");
 system("g++ ~/adb-ncurses/Linux/adb-ncurses.cpp -o ~/adb-ncurses/Linux/adb-ncurses");
 system("sudo rm /bin/adb-ncurses");
@@ -801,6 +801,10 @@ setup(2);
 Help();
 attron(COLOR_PAIR(3));
 mvprintw(row/2,cal/2-13,"Please restart adb-ncurses");
+getch();*/
+Help();
+attron(COLOR_PAIR(3));
+mvprintw(row/2,cal/2-4,"now work");
 getch();
 }
 if(y[2]==7) y[1]=0;
