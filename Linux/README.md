@@ -1,4 +1,5 @@
 # adb-ncurses
+# I am not responsible for this software
 ## install android-tools
 termux
 ```
