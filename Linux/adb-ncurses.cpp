@@ -9,6 +9,7 @@
 #include <sstream>
 #include <fstream>
 #include "filesmanager.h"
+#include "scannetwork.h"
 using namespace std;
 
 fstream homeD,modelD;
@@ -298,6 +299,19 @@ else attron(COLOR_PAIR(2));
 mvprintw(row/2-1,cal/2+tmp,"Back");
 }
 
+if(y[1]==4){
+if(y[2]==0) attron(COLOR_PAIR(1));
+else attron(COLOR_PAIR(2));
+mvprintw(row/2-3,cal/2+tmp,"Scan and connect(nmap)");
+if(y[2]==1) attron(COLOR_PAIR(1));
+else attron(COLOR_PAIR(2));
+mvprintw(row/2-2,cal/2+tmp,"Open port(usb)");
+if(y[2]==2) attron(COLOR_PAIR(1));
+else attron(COLOR_PAIR(2));
+mvprintw(row/2-1,cal/2+tmp,"Back");
+}
+
+
 if(y[1]==6){
 if(y[2]==0) attron(COLOR_PAIR(1));
 else attron(COLOR_PAIR(2));
@@ -418,8 +432,8 @@ system(command);
 setup(2);
 }
 
-if(y[0]==4){
-setup(1);
+if(y[0]==4) y[1]=4,y[2]=0;
+/*setup(1);
 char command[225],one[90];
 sprintf(command,"adb -s %s shell ip addr show wlan0 | grep \"inet\\s\" | awk \'{print $2}\' | awk -F\'/\' \'{print $1}\' > ip.txt",device);
 system(command);
@@ -465,7 +479,7 @@ break;
 }
 }
 gg=false;
-}
+}*/
 if(y[0]==5){
 setup(1);
 char command[255];
@@ -629,7 +643,7 @@ system("rm directory.txt");
 setup(2);
 }
 if(y[2]==1){
-char command[225],one[50],two[50];
+char command[225];
 fstream fileD;
 string fileDS,directory;
 /*echo();
@@ -653,6 +667,127 @@ system("rm directory.txt");
 setup(2);
 }
 if(y[2]==2) y[1]=0;
+break;
+}
+
+if(y[1]==4)
+switch(getch()){
+case 10:
+if(y[2]==0){
+char command[225];
+setup(1);
+scan();
+setup(2);
+fstream iplistD;
+string iplistDS;
+iplistD.open("found.txt");
+bool timebool=false;
+while(!timebool){
+iplistD >> iplistDS;
+sprintf(command,"adb connect %s:5555",iplistDS.c_str());
+system(command);
+if(iplistD.eof()) timebool=true;
+}
+Help();
+while(!gg){
+attron(COLOR_PAIR(3));
+mvprintw(row/2-2,cal/2-8,"Are change device?");
+if(y[2]==0) attron(COLOR_PAIR(1));
+else attron(COLOR_PAIR(2));
+mvprintw(row/2+1,cal/2-4,"no");
+if(y[2]==1) attron(COLOR_PAIR(1));
+else attron(COLOR_PAIR(2));
+mvprintw(row/2+1,cal/2+2,"ok");
+switch(getch()){
+case 10:
+if(y[2]==0) gg=true;
+if(y[2]==1){
+Ldevices();
+gg=true;
+system("rm found.txt");
+}
+break;
+case 97:
+case 260:
+if(y[2]==0) y[2]=1;
+else y[2]=0;
+break;
+case 100:
+case 261:
+if(y[2]==0) y[2]=1;
+else y[2]=0;
+break;
+}
+}
+gg=false;
+y[1]=0,y[2]=0;
+}
+
+if(y[2]==1){
+setup(1);
+char command[225],one[90];
+sprintf(command,"adb -s %s shell ip addr show wlan0 | grep \"inet\\s\" | awk \'{print $2}\' | awk -F\'/\' \'{print $1}\' > ip.txt",device);
+system(command);
+fstream ip("ip.txt");
+string ipb;
+ip >> ipb;
+ip.close();
+sprintf(one,"%s:5555",ipb.c_str());
+sprintf(command,"adb -s %s tcpip 5555",device);
+system(command);
+sprintf(command,"adb connect %s",one);
+system(command);
+system("rm ip.txt");
+setup(2);
+Help();
+while(!gg){
+attron(COLOR_PAIR(3));
+mvprintw(row/2-2,cal/2-8,"Are change device?");
+if(y[2]==0) attron(COLOR_PAIR(1));
+else attron(COLOR_PAIR(2));
+mvprintw(row/2+1,cal/2-4,"no");
+if(y[2]==1) attron(COLOR_PAIR(1));
+else attron(COLOR_PAIR(2));
+mvprintw(row/2+1,cal/2+2,"ok");
+switch(getch()){
+case 10:
+if(y[2]==0) gg=true;
+if(y[2]==1){
+Ldevices();
+gg=true;
+}
+break;
+case 97:
+case 260:
+if(y[2]==0) y[2]=1;
+else y[2]=0;
+break;
+case 100:
+case 261:
+if(y[2]==0) y[2]=1;
+else y[2]=0;
+break;
+}
+}
+gg=false;
+y[1]=0;
+}
+
+if(y[2]==2) y[1]=0;
+break;
+case 97:
+case 260:
+y[1]=0;
+break;
+case 119:
+case 259:
+if(y[2]==0) y[2]=2;
+else y[2]--;
+break;
+case 115:
+case 258:
+if(y[2]==2) y[2]=0;
+else y[2]++;
 break;
 }
 
