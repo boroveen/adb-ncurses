@@ -1,10 +1,15 @@
 # adb-ncurses
 # I am not responsible for this software
 ## install android-tools
-termux
+termux:old
 ```
 pkg update && pkg upgrade && pkg install wget
 wget -O - https://rendiix.github.io/install-repo.sh | bash && apt-get install adb fastboot
+```
+termux:new
+```
+git clone https://github.com/MasterDevX/Termux-ADB
+cd Termux-ADB;sh InstallTools.sh
 ```
 ubuntu
 ```
